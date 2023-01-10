@@ -25,8 +25,8 @@ object Logger {
     fun initLogger(context: Context) {
         val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd_HH:mm:ss", Locale.getDefault())
         val time = simpleDateFormat.format(Date())
-        var path = Environment.getExternalStorageDirectory().path + "/"
-        //  var path = context.cacheDir.absolutePath + "/"
+        //var path = Environment.getExternalStorageDirectory().path + "/"
+        var path = context.cacheDir.absolutePath + "/"
         path = "$path$time.log"
         LOGFILE = path
 
