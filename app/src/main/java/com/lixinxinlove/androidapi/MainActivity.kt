@@ -14,6 +14,7 @@ import android.view.MenuItem
 import com.lixinxinlove.androidapi.databinding.ActivityMainBinding
 import com.lixinxinlove.androidapi.logger.Logger
 import com.lixinxinlove.androidapi.ui.activity.BiometricPromptActivity
+import com.lixinxinlove.baselibrary.event.EventReportManager
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         startActivity(Intent(this, BiometricPromptActivity::class.java))
+
 
     }
 

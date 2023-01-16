@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import com.lixinxinlove.androidapi.base.BaseActivity
 import com.lixinxinlove.androidapi.databinding.ActivityHomeBinding
 import com.lixinxinlove.androidapi.ui.adapter.HomeListAdapter
+import com.lixinxinlove.baselibrary.event.EventReportManager
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>() {
 
@@ -19,14 +20,19 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
 
 
         initView()
+
+        EventReportManager.reportEvent("home")
     }
 
     private fun initView() {
-        val mList = listOf("chat")
+        val mList = listOf("chat", "BottomSheetsActivity")
         val mAdapter = HomeListAdapter(mList) {
             when (it) {
                 "chat" -> {
                     startActivity(Intent(mActivity, ChatActivity::class.java))
+                }
+                "BottomSheetsActivity" -> {
+                    startActivity(Intent(mActivity, BottomSheetsActivity::class.java))
                 }
             }
         }
