@@ -2,7 +2,8 @@ package com.lixinxinlove.androidapi
 
 import android.app.Application
 import com.lixinxinlove.androidapi.executor.LiveExecutor
-import com.lixinxinlove.androidapi.logger.Logger
+import timber.log.Timber
+
 
 class App : Application() {
 
@@ -12,6 +13,12 @@ class App : Application() {
 
 
         LiveExecutor.start()
+
+
+        if (BuildConfig.DEBUG) {
+            // default logging
+           Timber.plant(Timber.DebugTree())
+        }
     }
 
     companion object {

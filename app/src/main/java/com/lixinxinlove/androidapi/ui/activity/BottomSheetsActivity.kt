@@ -1,6 +1,5 @@
 package com.lixinxinlove.androidapi.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,8 +23,8 @@ class BottomSheetsActivity : BaseActivity<ActivityBottomSheetsBinding>() {
 
     private fun initEvent() {
 
-        val behavior = BottomSheetBehavior.from(binding.bottomSheet)
-        behavior.addBottomSheetCallback(object : BottomSheetCallback(){
+        var behavior = BottomSheetBehavior.from(binding.bottomSheet)
+        behavior.addBottomSheetCallback(object : BottomSheetCallback() {
             override fun onStateChanged(bottomSheet: View, newState: Int) {
                 //这里是bottomSheet状态的改变
             }
@@ -34,6 +33,18 @@ class BottomSheetsActivity : BaseActivity<ActivityBottomSheetsBinding>() {
                 //这里是拖拽中的回调，根据slideOffset可以做一些动画
             }
         })
+
+
+
+
+        binding.showView.setOnClickListener {
+            if (behavior.state == BottomSheetBehavior.STATE_EXPANDED) {
+                behavior.setState(BottomSheetBehavior.STATE_COLLAPSED)
+            } else {
+                behavior.setState(BottomSheetBehavior.STATE_EXPANDED)
+            }
+        }
+
 
     }
 

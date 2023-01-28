@@ -8,6 +8,7 @@ import com.lixinxinlove.androidapi.base.BaseActivity
 import com.lixinxinlove.androidapi.databinding.ActivityHomeBinding
 import com.lixinxinlove.androidapi.ui.adapter.HomeListAdapter
 import com.lixinxinlove.baselibrary.event.EventReportManager
+import timber.log.Timber
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>() {
 
@@ -25,14 +26,20 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
     }
 
     private fun initView() {
-        val mList = listOf("chat", "BottomSheetsActivity")
+        val mList = listOf("chat", "BottomSheetsActivity", "MaterialActivity")
         val mAdapter = HomeListAdapter(mList) {
+
+            Timber.e(TAG,"initView")
+
             when (it) {
                 "chat" -> {
                     startActivity(Intent(mActivity, ChatActivity::class.java))
                 }
                 "BottomSheetsActivity" -> {
                     startActivity(Intent(mActivity, BottomSheetsActivity::class.java))
+                }
+                "MaterialActivity" -> {
+                    startActivity(Intent(mActivity, MaterialActivity::class.java))
                 }
             }
         }
